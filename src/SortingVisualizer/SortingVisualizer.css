@@ -1,0 +1,21 @@
+.array-container {
+  position: absolute;
+  left:100px;
+  top: 150px;
+  right: 80px;
+}
+
+.array-bar{
+  width: 9px;
+  background-color: turquoise;
+  display: inline-block;
+  margin: 0 1px;
+}
+
+.Options{
+  top: 500px;
+  left: 570px;
+  position: absolute;
+  background-color: pink;
+  margin: 50px;
+}
