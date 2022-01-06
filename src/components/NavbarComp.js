@@ -9,11 +9,11 @@ export default class NavbarComp extends Component {
 
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="#home"><u>Algo Viz</u></Navbar.Brand>
+            <Navbar.Brand href="#home" ><u>Algo Viz</u></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="#features">Home</Nav.Link>
+                <Nav.Link href="#features" >Home</Nav.Link>
                 <Nav.Link href="#pricing">About Us</Nav.Link>
                 <NavDropdown title="Algorithm List" id="collasible-nav-dropdown">
 

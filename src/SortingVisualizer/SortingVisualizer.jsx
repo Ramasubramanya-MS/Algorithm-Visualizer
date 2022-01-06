@@ -1,9 +1,26 @@
 import React from 'react';
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
+import {quickSort} from '../sortingAlgorithms/sortingAlgorithms.js';
+import {bubbles} from '../sortingAlgorithms/bubblesort.js';
 import './SortingVisualizer.css';
 
+// Change this value for the speed of the animations.
+const ANIMATION_SPEED_MS = 1;
 
+// Change this value for the number of bars (value) in the array.
+const NUMBER_OF_ARRAY_BARS = 310;
 
+// This is the main color of the array bars.
+const PRIMARY_COLOR = 'turquoise';
+
+// This is the color of array bars that are being compared throughout the animations.
+const SECONDARY_COLOR = 'red';
+
+const NUMER_OF_BARS=175;
+const DEFAULT_COLOR= 'yellow';
+const COLOR_CHANGE= 'red';
+const COLOR_DIFF='yellow';
+const ANIMATION_SPEED=15;
 
 export default class SortingVisualizer extends React.Component {
   constructor(props) {
@@ -50,16 +67,93 @@ export default class SortingVisualizer extends React.Component {
     }
   }
 
-  quickSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
+  quicksort(){
+
+    const animations=[];  //stores all the swaps to be done
+     quickSort(this.state.array, 0, this.state.array.length-1, animations);
+
+     for(let i=0;i<animations.length;i++){
+      const arraybars= document.getElementsByClassName('array-bar');
+        const ischange = i%3!==2;
+        if(ischange){
+          const [firstidx, secondidx, firsth, secondh]= animations[i];
+          let color1;
+          let color2;
+          if(i%3===0){
+              color1=COLOR_CHANGE;
+              color2= COLOR_DIFF;
+          }
+          else{
+              color1= DEFAULT_COLOR;
+              color2= DEFAULT_COLOR;
+          }
+            setTimeout(()=>{
+
+              arraybars[firstidx].style.backgroundColor= color1;
+              arraybars[secondidx].style.backgroundColor= color2;
+
+            }, i*ANIMATION_SPEED);
+        }
+        else {
+          setTimeout(()=>{
+            const [firstidx, secondidx, firsth, secondh]= animations[i];
+            const firststyle= arraybars[firstidx].style;
+            const secondstyle= arraybars[secondidx].style;
+            firststyle.height=`${firsth}px`;
+            secondstyle.height=`${secondh}px`;
+               }, i*ANIMATION_SPEED);
+        }
+
+
+    }
+
   }
 
   heapSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
+
   }
 
-  bubbleSort() {
-    // We leave it as an exercise to the viewer of this code to implement this method.
+  bubblesort(){
+
+
+    const animations= bubbles(this.state.array);
+
+    for(let i=0;i<animations.length;i++){
+      const arraybars= document.getElementsByClassName('array-bar');
+        const ischange = i%3!==2;
+        if(ischange){
+          const [firstidx, secondidx, firsth, secondh]= animations[i];
+          let color1;
+          let color2;
+          if(i%3===0){
+              color1=COLOR_CHANGE;
+              color2= COLOR_DIFF;
+          }
+          else{
+              color1= DEFAULT_COLOR;
+              color2= DEFAULT_COLOR;
+          }
+            setTimeout(()=>{
+
+              arraybars[firstidx].style.backgroundColor= color1;
+              arraybars[secondidx].style.backgroundColor= color2;
+
+            }, i*ANIMATION_SPEED);
+        }
+        else {
+          setTimeout(()=>{
+            const [firstidx, secondidx, firsth, secondh]= animations[i];
+            const firststyle= arraybars[firstidx].style;
+            const secondstyle= arraybars[secondidx].style;
+            firststyle.height=`${firsth}px`;
+            secondstyle.height=`${secondh}px`;
+               }, i*ANIMATION_SPEED);
+        }
+
+
+    }
+
+
   }
 
   // NOTE: This method will only work if your sorting algorithms actually return
@@ -95,9 +189,10 @@ export default class SortingVisualizer extends React.Component {
         <div className="Options">
         <button onClick={() => this.resetArray()}><b>Generate New Array</b></button>
         <button onClick={() => this.mergeSort()}><b>Merge Sort</b></button>
-        <button onClick={() => this.quickSort()}>Quick Sort</button>
+        <button onClick={()=>this.quicksort()}><b>Quick Sort</b></button>
+        <button onClick={()=>this.bubblesort()}><b>Bubble Sort</b></button>
         <button onClick={() => this.heapSort()}>Heap Sort</button>
-        <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+
         </div>
       </div>
     );
