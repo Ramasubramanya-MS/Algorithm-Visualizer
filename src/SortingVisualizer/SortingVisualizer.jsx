@@ -37,7 +37,7 @@ export default class SortingVisualizer extends React.Component {
 
   resetArray() {
     const array = [];
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 130; i++) {
       array.push(randomIntFromInterval(5, 500));
     }
     this.setState({array});
@@ -156,9 +156,6 @@ export default class SortingVisualizer extends React.Component {
 
   }
 
-  // NOTE: This method will only work if your sorting algorithms actually return
-  // the sorted arrays; if they return the animations (as they currently do), then
-  // this method will be broken.
   testSortingAlgorithms() {
     for (let i = 0; i < 100; i++) {
       const array = [];
