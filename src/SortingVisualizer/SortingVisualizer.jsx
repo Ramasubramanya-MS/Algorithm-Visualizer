@@ -52,14 +52,14 @@ export default class SortingVisualizer extends React.Component {
         const [barOneIdx, barTwoIdx] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? 'red' : 'yellow';
+        const color = i % 3 === 0 ? 'red' : 'yellow'; //At the start of every 3rd thriplet -> New Start -> New Animation; 2 -> color change; 3rd swap
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
         }, i * 15);
       } else {
         setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
+          const [barOneIdx, newHeight] = animations[i]; //bar no., new Ht
           const barOneStyle = arrayBars[barOneIdx].style;
           barOneStyle.height = `${newHeight}px`;
         }, i * 15);

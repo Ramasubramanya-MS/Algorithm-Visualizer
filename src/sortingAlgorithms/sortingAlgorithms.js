@@ -59,7 +59,7 @@ function doMerge(
     animations.push([i,j]);
 
     if (auxillaryArray[i] <= auxillaryArray[j]){
-      animations.push([k,auxillaryArray[i]]);
+      animations.push([k,auxillaryArray[i]]); //Overwriting the value @ k from auxArr @ i
       mainArray[k++] = auxillaryArray[i++];
     }else{
       animations.push([k,auxillaryArray[i]]);
@@ -99,7 +99,7 @@ function partition(items=[], left, right, animations=[]) {
             j--;
         }
         if (i <= j) {
-            swap(items, i, j); //sawpping two elements
+            swap(items, i, j); //swapping two elements
             animations.push([i,j, items[i], items[j]]);
             animations.push([i,j, items[i], items[j]]);
             animations.push([i,j, items[i], items[j]]);

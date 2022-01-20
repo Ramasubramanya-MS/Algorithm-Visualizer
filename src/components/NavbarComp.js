@@ -9,12 +9,13 @@ export default class NavbarComp extends Component {
 
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="#home" ><u>Algo Viz</u></Navbar.Brand>
+            <Navbar.Brand href="" ><u>Algo Viz</u></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="#features" >Home</Nav.Link>
-                <Nav.Link href="#pricing">About Us</Nav.Link>
+                <Nav.Link href="#Home" href="">Home</Nav.Link>
+                <Nav.Link href="#About Us" href="">About Us</Nav.Link>
+                
                 <NavDropdown title="Algorithm List" id="collasible-nav-dropdown">
 
                     <NavDropdown.Item href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank">Bubble Sort</NavDropdown.Item>
@@ -27,11 +28,12 @@ export default class NavbarComp extends Component {
                     <NavDropdown.Item href="https://en.wikipedia.org/wiki/Radix_sort" target="_blank">Radix Sort</NavDropdown.Item>
 
                 </NavDropdown>
+                <Nav.Link href="#GitHub Repo" href="https://github.com/Ramasubramanya-MS/Sorting-Visualizer" target="_blank">GitHub Link</Nav.Link>
               </Nav>
               <Nav>
 
-                <Nav.Link eventKey={2} href="https://www.instagram.com/algomemes1/?hl=en" target="_blank">
-                  Algo Memes
+                <Nav.Link eventKey={2} href="https://github.com/Ramasubramanya-MS/Algorithm-Memes/blob/main/README.md" target="_blank">
+                  Algorithm Memes
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
